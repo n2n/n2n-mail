@@ -21,7 +21,7 @@
  */
 namespace n2n\mail;
 
-use n2n\N2N;
+use n2n\core\N2N;
 
 class MailUtils {
 	public static function createNotificationMail($subject, $message = null, $to = null) {
