@@ -1,7 +1,7 @@
 {
     "name": "n2n/n2n-mail",
     "type": "library",
-    "description": "Simple mail library design for n2n framework",
+    "description": "Simple mail library designed for n2n framework",
     "keywords": ["n2n","mail"],
     "homepage": "http://n2n.rocks/",
     "license": "GNU LGPL",
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "n2n\\core\\": "src/app/n2n/core"
+            "n2n\\mail\\": "src/app/n2n/mail"
         }
     }
 }
