@@ -9,8 +9,7 @@
         {
             "name": "Bert Hofmänner",
             "email": "hofmaenner@hnm.ch",
-            "homepage": "http://www.hnm.ch",
-            "role": "Developer"
+            "homepage": "http://www.hnm.ch"
         }
     ],
     "require": {
