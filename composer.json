@@ -14,8 +14,8 @@
     ],
     "require": {
         "php": ">=7.0",
-        "n2n/n2n-reflection": "master-dev",
-        "n2n/n2n-util": "master-dev"
+        "n2n/n2n-reflection": "7.1.x-dev",
+        "n2n/n2n-util": "7.1.x-dev"
     },
     "autoload": {
         "psr-4": {
