@@ -4,12 +4,12 @@
     "description": "Simple mail library designed for n2n framework",
     "keywords": ["n2n","mail"],
     "homepage": "http://n2n.rocks/",
-    "license": "GNU LGPL",
+    "license": "LGPL-3.0-or-later",
     "authors": [
         {
             "name": "Bert Hofmänner",
             "email": "hofmaenner@hnm.ch",
-            "homepage": "http://www.hnm.ch"
+            "homepage": "https://www.hnm.ch/"
         }
     ],
     "require": {
