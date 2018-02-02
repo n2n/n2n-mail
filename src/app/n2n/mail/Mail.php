@@ -21,10 +21,7 @@
  */
 namespace n2n\mail;
 
-use n2n\io\fs\Managable;
-use n2n\mail\MailAddress;
-use n2n\mail\MailEncoder;
-use n2n\mail\MailException;
+use n2n\io\managed\File;
 
 class Mail {
 	const PRIORITY_HIGHEST = 1;
@@ -248,7 +245,7 @@ class Mail {
 		return $this->altMessage;
 	}
 	
-	public function addManagable(Managable $file) {
+	public function addManagable(File $file) {
 		$this->addFile($file->getPath(), $file->getOriginalName());
 	}
 	

@@ -21,7 +21,7 @@
  */
 namespace n2n\mail;
 
-use n2n\io\fs\Managable;
+use n2n\io\managed\File;
 
 class MailTemplate {
 	private $from;
@@ -37,9 +37,9 @@ class MailTemplate {
 	
 	/**
 	 * adds a managed file as an attachment
-	 * @param Managable $file
+	 * @param File $file
 	 */
-	public function addManagable(Managable $file) {
+	public function addManagable(File $file) {
 		$this->addFile($file->getPath(), $file->getOriginalName());
 	}
 	
