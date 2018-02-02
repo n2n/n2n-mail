@@ -22,8 +22,6 @@
 namespace n2n\mail;
 
 use n2n\log4php\Logger;
-
-use n2n\mail\Mail;
 use n2n\mail\smtp\SmtpClient;
 use n2n\mail\smtp\SmtpConfig;
 use n2n\core\N2N;
