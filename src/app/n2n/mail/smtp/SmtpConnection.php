@@ -21,9 +21,6 @@
  */
 namespace n2n\mail\smtp;
 
-use n2n\mail\smtp\SmtpResponse;
-use n2n\mail\smtp\SmtpConnectionException;
-
 class SmtpConnection {
 	/**
 	 * @var SmtpConfig

@@ -83,7 +83,7 @@ class MailEncoder {
 	 * @param string $message
 	 * @param string $altMessage
 	 * @param string $encoding
-	 * @param stirng $charset
+	 * @param string $charset
 	 * @param string $eol
 	 */
 	public static function encodeMultipartAlternative($boundary, $message, $altMessage, $encoding, $charset, $eol = "\n") {
