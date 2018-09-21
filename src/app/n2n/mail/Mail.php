@@ -246,10 +246,10 @@ class Mail {
 	}
 	
 	public function addManagable(File $file) {
-		$this->addFile($file->getPath(), $file->getOriginalName());
+		$this->addFile($file->getFileSource()->getFsPath(), $file->getOriginalName());
 	}
 	
-	public function addFile($path, $name) {
+	public function addFile(string $path, string $name) {
 		if (!is_file($path)) throw new MailException('invalid path');
 		$this->attachments[(string) $path] = $name;
 	}
