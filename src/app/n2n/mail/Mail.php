@@ -305,11 +305,11 @@ class Mail {
 	
 	public function setEncoding($encoding) {
 		$validEncodings = array(
-			MailEncoder::ENCODING_7BIT, 
-			MailEncoder::ENCODING_8BIT, 
-			MailEncoder::ENCODING_BASE64, 
-			MailEncoder::ENCODING_BINARY, 
-			MailEncoder::ENCODING_QUOTED_PRINTABLE);
+				MailEncoder::ENCODING_7BIT, 
+				MailEncoder::ENCODING_8BIT, 
+				MailEncoder::ENCODING_BASE64, 
+				MailEncoder::ENCODING_BINARY, 
+				MailEncoder::ENCODING_QUOTED_PRINTABLE);
 		if (!in_array($encoding, $validEncodings)) throw new MailException('invalid encoding');
 		$this->encoding = $encoding;
 	}
