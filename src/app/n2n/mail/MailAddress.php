@@ -21,7 +21,7 @@
  */
 namespace n2n\mail;
 
-use n2n\reflection\ArgUtils;
+use n2n\util\type\ArgUtils;
 
 class MailAddress {
 	private $email;

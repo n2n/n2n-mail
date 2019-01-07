@@ -22,7 +22,7 @@
 namespace n2n\mail\smtp;
 
 
-use n2n\reflection\ArgUtils;
+use n2n\util\type\ArgUtils;
 use n2n\util\StringUtils;
 
 class SmtpConfig {
