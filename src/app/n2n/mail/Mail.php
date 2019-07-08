@@ -387,7 +387,7 @@ class Mail {
 		
 		$contentType = $this->getContentType();
 		if ($contentType == self::CONTENT_TYPE_PLAIN) {
-			$header .= $this->getHeaderLine('Content-Type', $contentType . '; charset="' . $this->getCharset() . '"', $eol);
+			$header .= $this->getHeaderLine('Content-Type', $contentType . '; charset=' . $this->getCharset(), $eol);
 			$header .= $this->getHeaderLine('Content-Transfer-Encoding', $this->getEncoding(), $eol);
 		} else {
 			$header .= $this->getHeaderLine('Content-Type', $contentType . ";\r\n\tboundary=\"" . $this->getMessageId() . '"', $eol);
