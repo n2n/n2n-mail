@@ -14,14 +14,27 @@
 			"homepage" : "https://www.hnm.ch/"
 		}
 	],
+	"minimum-stability" : "dev",
+	"prefer-stable": true,
+	"config" : {
+		"vendor-dir" : "src/vendor"
+	},
 	"require" : {
 		"php" : ">=7.0",
 		"n2n/n2n-reflection" : "^7.2.33",
 		"n2n/n2n-util" : "^7.2.33"
 	},
+	"require-dev" : {
+		"phpunit/phpunit" : "^9.5"
+	},
 	"autoload" : {
 		"psr-4" : {
 			"n2n\\mail\\" : "src/app/n2n/mail"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"n2n\\mail\\" : "src/test/n2n/mail"
 		}
 	}
 }
