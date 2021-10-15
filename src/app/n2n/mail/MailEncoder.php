@@ -21,8 +21,8 @@
  */
 namespace n2n\mail;
 
-use n2n\io\IoUtils;
-use n2n\io\fs\FsPath;
+use n2n\util\io\IoUtils;
+use n2n\util\io\fs\FsPath;
 
 class MailEncoder {
 	// valid encoding options
