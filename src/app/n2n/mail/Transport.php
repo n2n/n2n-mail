@@ -30,7 +30,7 @@ class Transport {
 	public static function send(Mail $mail) {
 		if (N2N::getAppConfig()->mail()->isSendingMailEnabled()) {
 			$subject = '=?utf-8?B?' . base64_encode($mail->getSubject()) . '?=';
-			if (!@mail($mail->getTo(), $subject, $mail->getBody(), $mail->getHeader(true))) {
+			if (!@mail($mail->getTo(), $subject, $mail->getBody(), $mail->getHeader(true), '-f ' . $mail->getReturnPath())) {
 				$err = error_get_last();
 				throw new MailException('Mail could not be sent. Reason: ' . $err['message']);
 			}
