@@ -49,6 +49,7 @@ class Mail {
 	
 	private $from;
 	private $sender;
+	private $returnPath;
 	private $replyTo = array();
 	private $to = array();
 	private $cc = array();
@@ -103,6 +104,23 @@ class Mail {
 	public function getSender() {
 		if (!$this->sender) return $this->getFrom();
 		return $this->sender;
+	}
+	
+	public function setReturnPath(string $returnPath) {
+		if (!filter_var($returnPath, FILTER_VALIDATE_EMAIL)) {
+			throw new \InvalidArgumentException('invalid returnPath: ' . $returnPath);
+		}
+		$this->returnPath = $returnPath;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getReturnPath() {
+		if ($this->returnPath === null) {
+			return $this->getSender()->getEmail();
+		}
+		return $this->returnPath;
 	}
 	
 	public function addReplyTo($replyTo) {
@@ -343,7 +361,7 @@ class Mail {
 		$eol = "\n"; 
 		
 		// return path
-		$header = $this->getHeaderLine('Return-Path', $this->getSender()->getEmail(), $eol); 
+		$header = $this->getHeaderLine('Return-Path', $this->getReturnPath(), $eol); 
 
 		$header .= $this->getHeaderLine('Date', date(\DateTime::RFC2822), $eol);
 		
@@ -378,7 +396,7 @@ class Mail {
 		// @todo: add sending host
 		$header .= $this->getHeaderLine('Message-ID', '<' . $this->getMessageId() . '@hnm.ch>', $eol);
 		$header .= $this->getHeaderLine('X-Priority', $this->getPriority(), $eol);
-		$header .= $this->getHeaderLine('X-Mailer', 'n2n.ch Mailer based on PHP ' . phpversion(), $eol);
+		$header .= $this->getHeaderLine('X-Mailer', 'n2n.rocks Mailer', $eol);
 		
 		// add MIME, Content-Tyoe and Boundary information
 		$header .= $this->getHeaderLine('MIME-Version', '1.0', $eol);
