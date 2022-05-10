@@ -21,8 +21,6 @@
  */
 namespace n2n\mail;
 
-use n2n\core\N2nException;
-
-class MailException extends N2nException {
+class MailException extends \RuntimeException {
 	
 }
