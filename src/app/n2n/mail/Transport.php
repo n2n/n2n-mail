@@ -32,7 +32,7 @@ class Transport {
 			$subject = '=?utf-8?B?' . base64_encode($mail->getSubject()) . '?=';
 			if (!@mail($mail->getTo(), $subject, $mail->getBody(), $mail->getHeader(true), '-f ' . $mail->getReturnPath())) {
 				$err = error_get_last();
-				throw new MailException('Mail could not be sent. Reason: ' . $err['message']);
+				throw new MailException('Mail could not be sent. Reason: ' . ($err['message'] ?? ' Sendmail probably not installed.'));
 			}
 		}
 		
