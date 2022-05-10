@@ -60,7 +60,7 @@ class Transport {
 		self::log($mail);
 	}
 	
-	private static function log(Mail $mail) {
+	static function log(Mail $mail) {
 		$logger = Logger::getLogger('mailLogger');
 		$logger->info($mail);
 	}
