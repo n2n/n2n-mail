@@ -358,7 +358,7 @@ class Mail {
 		
 		// eol bug fix:
 		// the correct end "\r\n" of line does not work on all servers --> see php.net/manual mail function 
-		$eol = "\n"; 
+		$eol = "\r\n"; 
 		
 		// return path
 		$header = $this->getHeaderLine('Return-Path', $this->getReturnPath(), $eol); 
