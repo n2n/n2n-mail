@@ -23,7 +23,7 @@ namespace n2n\mail;
 
 use n2n\log4php\Logger;
 use n2n\mail\smtp\SmtpClient;
-use n2n\mail\smtp\SmtpConfig;
+use n2n\core\config\SmtpConfig;
 use n2n\core\N2N;
 
 class Transport {

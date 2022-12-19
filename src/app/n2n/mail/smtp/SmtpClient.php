@@ -23,6 +23,7 @@ namespace n2n\mail\smtp;
 
 use n2n\mail\MailAddress;
 use n2n\mail\Mail;
+use n2n\core\config\SmtpConfig;
 
 class SmtpClient {
 	/**
