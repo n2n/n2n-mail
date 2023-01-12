@@ -20,7 +20,7 @@
 		"vendor-dir" : "src/vendor"
 	},
 	"require" : {
-		"n2n/n2n-util" : "~7.3"
+		"n2n/n2n-util" : "~7.4"
 	},
 	"require-dev" : {
 		"phpunit/phpunit" : "^9.5"
