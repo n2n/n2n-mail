@@ -431,7 +431,7 @@ class Mail {
 		}
 	}
 	
-	
+	// check the use of iconv_mime_encode()
 	private function getHeaderLine($key, $value, $eol = "\n") {
 		$value = trim(preg_replace('/[\r\n]+/', '', $value));
 		return "{$key}: {$value}{$eol}";
