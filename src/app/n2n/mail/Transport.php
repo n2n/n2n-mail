@@ -29,7 +29,7 @@ use n2n\core\N2N;
 class Transport {
 	public static function send(Mail $mail) {
 		if (N2N::getAppConfig()->mail()->isSendingMailEnabled()) {
-			$subject = '=?utf-8?B?' . base64_encode($mail->getSubject()) . '?=';
+			$subject = substr(mb_encode_mimeheader('Subject: ' . $mail->getSubject(), 'utf-8', 'B', "\r\n", 0), 9);
 			if (!@mail($mail->getTo(), $subject, $mail->getBody(), $mail->getHeader(true), '-f ' . $mail->getReturnPath())) {
 				$err = error_get_last();
 				throw new MailException('Mail could not be sent. Reason: ' . ($err['message'] ?? ' Sendmail probably not installed.'));
