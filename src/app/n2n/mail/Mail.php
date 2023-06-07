@@ -356,10 +356,11 @@ class Mail {
 		// eol bug fix:
 		// the correct end "\r\n" of line does not work on all servers --> see php.net/manual mail function 
 		$eol = "\r\n"; 
+		$header = '';
 		
 		// return path
 		if (null !== $returnPath = $this->getReturnPath()) {
-			$header = $this->getHeaderLine('Return-Path', $returnPath, $eol); 			
+			$header .= $this->getHeaderLine('Return-Path', $returnPath, $eol); 			
 		}
 
 		$header .= $this->getHeaderLine('Date', date(\DateTime::RFC2822), $eol);
