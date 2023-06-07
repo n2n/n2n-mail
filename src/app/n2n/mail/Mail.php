@@ -117,9 +117,6 @@ class Mail {
 	 * @return string
 	 */
 	public function getReturnPath() {
-		if ($this->returnPath === null) {
-			return $this->getSender()->getEmail();
-		}
 		return $this->returnPath;
 	}
 	
@@ -361,7 +358,9 @@ class Mail {
 		$eol = "\r\n"; 
 		
 		// return path
-		$header = $this->getHeaderLine('Return-Path', $this->getReturnPath(), $eol); 
+		if (null !== $returnPath = $this->getReturnPath()) {
+			$header = $this->getHeaderLine('Return-Path', $returnPath, $eol); 			
+		}
 
 		$header .= $this->getHeaderLine('Date', date(\DateTime::RFC2822), $eol);
 		
