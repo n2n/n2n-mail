@@ -117,9 +117,6 @@ class Mail {
 	 * @return string
 	 */
 	public function getReturnPath() {
-		if ($this->returnPath === null) {
-			return $this->getSender()->getEmail();
-		}
 		return $this->returnPath;
 	}
 	
@@ -359,9 +356,12 @@ class Mail {
 		// eol bug fix:
 		// the correct end "\r\n" of line does not work on all servers --> see php.net/manual mail function 
 		$eol = "\n"; 
+		$header = '';
 		
 		// return path
-		$header = $this->getHeaderLine('Return-Path', $this->getReturnPath(), $eol); 
+		if (null !== $returnPath = $this->getReturnPath()) {
+			$header .= $this->getHeaderLine('Return-Path', returnPath, $eol); 
+		}
 
 		$header .= $this->getHeaderLine('Date', date(\DateTime::RFC2822), $eol);
 		
