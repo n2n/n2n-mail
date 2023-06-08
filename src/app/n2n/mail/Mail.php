@@ -353,8 +353,7 @@ class Mail {
 	public function getHeader($forMail = false) {
 		$this->isReadyToSend();
 		
-		// eol bug fix:
-		// the correct end "\r\n" of line does not work on all servers --> see php.net/manual mail function 
+		// info: the correct end "\r\n" did not work on unix/linux servers prior php 8 --> see php.net/manual mail function 
 		$eol = "\r\n"; 
 		$header = '';
 		
