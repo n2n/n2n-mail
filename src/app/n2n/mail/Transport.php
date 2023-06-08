@@ -31,7 +31,8 @@ class Transport {
 		if (N2N::getAppConfig()->mail()->isSendingMailEnabled()) {
 			// the old solution generated subjects, that were longer than 76 chars. that was a violation of the e-mail standard
 			$subject = substr(mb_encode_mimeheader('Subject: ' . $mail->getSubject(), 'utf-8', 'B', "\r\n", 0), 9);
-			if (!@mail($mail->getTo(), $subject, $mail->getBody(), $mail->getHeader(true), '-f ' . $mail->getReturnPath())) {
+			$returnPath = $mail->getReturnPath() ? $mail->getReturnPath() : $mail->getFrom()->getEmail();
+			if (!@mail($mail->getTo(), $subject, $mail->getBody(), $mail->getHeader(true), '-f ' . $returnPath)) {
 				$err = error_get_last();
 				throw new MailException('Mail could not be sent. Reason: ' . ($err['message'] ?? ' Sendmail probably not installed.'));
 			}
