@@ -354,8 +354,8 @@ class Mail {
 		$this->isReadyToSend();
 		
 		// eol bug fix:
-		// the correct end "\r\n" of line does not work on all servers --> see php.net/manual mail function 
-		$eol = "\n"; 
+		// the correct end "\r\n" of line does not work on unix/linux servers prior php 8 --> see php.net/manual mail function 
+		$eol = PHP_MAJOR_VERSION < 8 ? PHP_EOL : "\r\n"; 
 		$header = '';
 		
 		// return path
