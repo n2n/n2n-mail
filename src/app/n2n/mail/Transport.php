@@ -30,7 +30,8 @@ class Transport {
 	public static function send(Mail $mail) {
 		if (N2N::getAppConfig()->mail()->isSendingMailEnabled()) {
 			$subject = substr(mb_encode_mimeheader('Subject: ' . $mail->getSubject(), 'utf-8', 'B', "\r\n", 0), 9);
-			if (!@mail($mail->getTo(), $subject, $mail->getBody(), $mail->getHeader(true), '-f ' . $mail->getReturnPath())) {
+			$returnPath = $mail->getReturnPath() ? $mail->getReturnPath() : $mail->getFrom()->getEmail();
+			if (!@mail($mail->getTo(), $subject, $mail->getBody(), $mail->getHeader(true), '-f ' . $returnPath)) {
 				$err = error_get_last();
 				throw new MailException('Mail could not be sent. Reason: ' . ($err['message'] ?? ' Sendmail probably not installed.'));
 			}
